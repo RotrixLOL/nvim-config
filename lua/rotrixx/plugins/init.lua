@@ -9,19 +9,20 @@ return {
     opts = {}
   },
 
-	{
-    'nvim-telescope/telescope.nvim', tag = '0.1.2',
+  {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.2',
     dependencies = { 'nvim-lua/plenary.nvim' },
     keys = {
-      { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
-      { "<leader>fif", "<cmd>Telescope live_grep<cr>", desc = "Find in Files" },
-      { "<leader>fg", "<cmd>Telescope git_files<cr>", desc = "Find in Git" },
-      { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find Buffers" },
+      { "<leader>ff",  "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+      { "<leader>fif", "<cmd>Telescope live_grep<cr>",  desc = "Find in Files" },
+      { "<leader>fg",  "<cmd>Telescope git_files<cr>",  desc = "Find in Git" },
+      { "<leader>fb",  "<cmd>Telescope buffers<cr>",    desc = "Find Buffers" },
     }
   },
 
-	-- Colorscheme
-	{
+  -- Colorscheme
+  {
     "catppuccin/nvim",
     lazy = false,
     name = "catppuccin",
@@ -39,7 +40,7 @@ return {
     event = "BufEnter",
     dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
     keys = {
-      { "<leader>tl", "<cmd>TodoTelescope<cr>", desc = "List" },
+      { "<leader>tl", "<cmd>TodoTelescope<cr>",                            desc = "List" },
       { "<leader>tn", function() require("todo-comments").jump_next() end, desc = "Next" },
       { "<leader>tb", function() require("todo-comments").jump_prev() end, desc = "Back" },
     },
@@ -64,9 +65,39 @@ return {
     "Exafunction/codeium.vim",
     event = "BufEnter",
     keys = {
-      { "<C-g><tab>", function () return vim.fn['codeium#Accept']() end, mode = "i", desc = "Accept codeium suggestion" },
-      { "<C-g>[", function() return vim.fn['codeium#CycleCompletions'](-1) end, mode = "i", desc = "Previous codeium suggestion" },
-      { "<C-g>]", function() return vim.fn['codeium#CycleCompletions'](1) end, mode = "i", desc = "Next codeium suggestion" },
+      {
+        "<C-g><tab>",
+        function() return vim.fn['codeium#Accept']() end,
+        mode = "i",
+        desc =
+        "Accept codeium suggestion"
+      },
+      {
+        "<C-g>[",
+        function() return vim.fn['codeium#CycleCompletions'](-1) end,
+        mode = "i",
+        desc =
+        "Previous codeium suggestion"
+      },
+      {
+        "<C-g>]",
+        function() return vim.fn['codeium#CycleCompletions'](1) end,
+        mode = "i",
+
+        desc =
+        "Next codeium suggestion"
+      },
+    }
+  },
+
+  -- Custom notifications
+  {
+    "rcarriga/nvim-notify",
+    config = function()
+      vim.notify = require("notify")
+    end,
+    opts = {
+      background_colour = "#000000"
     }
   },
 
