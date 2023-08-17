@@ -17,3 +17,9 @@ This is my new config for nvim.
 * Neo-tree
 * Comment.nvim for commenting lines and visual mode lines
 * and many more!
+
+## Preview
+
+![Nvim config screenshot 1](./screenshots/1.png)
+![Nvim config screenshot 2](./screenshots/2.png)
+![Nvim config screenshot 3](./screenshots/3.png)
