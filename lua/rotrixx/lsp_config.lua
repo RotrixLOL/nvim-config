@@ -40,7 +40,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
   ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
   ['<C-Space>'] = cmp.mapping.complete(),
-  ["<tab>"] = cmp.mapping.confirm { select = true },
+  ["<Tab>"] = cmp.mapping.confirm { select = true },
   ["<C-e>"] = cmp.mapping {
     i = cmp.mapping.abort(),
     c = cmp.mapping.close(),
